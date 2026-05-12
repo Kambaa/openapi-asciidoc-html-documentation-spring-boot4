@@ -31,6 +31,7 @@
         <java.version>25</java.version>
         <maven.wrapper.executable>${project.basedir}/mvnw.cmd</maven.wrapper.executable>
         <openapi.docs.exec.running>false</openapi.docs.exec.running>
+        <default.phase.skip>true</default.phase.skip>
     </properties>
     <dependencies>
         <dependency>
@@ -124,6 +125,7 @@
                             <arguments>
                                 <!-- double/run loop protection-->
                                 <argument>-Dopenapi.docs.exec.running=true</argument>
+                                <argument>-Ddefault.phase.skip=false</argument>
 
                                 <!--Start spring get the swagger json and stop the app-->
                                 <argument>spring-boot:start@start-app</argument>
@@ -219,6 +221,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
+                            <skip>${default.phase.skip}</skip>
                             <apiDocsUrl>http://localhost:8080/v3/api-docs</apiDocsUrl>
                             <outputDir>${project.basedir}/src/main/resources/static</outputDir>
                             <outputFileName>swagger.json</outputFileName>
@@ -240,6 +243,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
+                            <skip>${default.phase.skip}</skip>
                             <!--                            <skip>${skip.docgen}</skip>-->
                             <inputSpec>${project.basedir}/src/main/resources/static/swagger.json
                             </inputSpec>

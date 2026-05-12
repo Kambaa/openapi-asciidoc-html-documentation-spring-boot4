@@ -33,3 +33,4 @@ build/
 .idea/
 docs/
 /src/main/resources/templates/.openapi-generator/
+/src/main/resources/static/.openapi-generator/
