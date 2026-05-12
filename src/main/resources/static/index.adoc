@@ -1,0 +1,752 @@
+= Book Catalog API
+dev@example.com
+1.0.0
+:toc: left
+:numbered:
+:toclevels: 4
+:source-highlighter: highlightjs
+:keywords: openapi, rest, Book Catalog API
+:specDir: 
+:snippetDir: 
+:generator-template: v1 2019-12-20
+:info-url: https://openapi-generator.tech
+:app-name: Book Catalog API
+
+[abstract]
+.Abstract
+REST API for managing a book catalog
+
+
+// markup not found, no include::{specDir}intro.adoc[opts=optional]
+
+
+
+== Endpoints
+
+
+[.Books]
+=== Books
+
+
+[.create]
+==== POST /api/books
+
+Operation Id:: create
+
+
+Create a new book
+
+===== Description
+
+Adds a new book to the catalog
+
+
+// markup not found, no include::{specDir}api/books/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+[cols="2,3,1,1,1"]
+.Body Parameter
+|===
+|Name| Description| Required| Default| Pattern
+
+| Book
+|  <<Book>>
+| X
+| 
+| 
+
+|===
+
+
+
+
+
+===== Return Type
+
+<<Book>>
+
+
+===== Content Type
+
+* */*
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 201
+| Book created successfully
+|  <<Book>>
+
+
+| 400
+| Invalid input
+|  <<ProblemDetail>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/books/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/books/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/books/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/books/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.delete]
+==== DELETE /api/books/{id}
+
+Operation Id:: delete
+
+
+Delete a book
+
+===== Description
+
+Removes a book from the catalog by ID
+
+
+// markup not found, no include::{specDir}api/books/\{id\}/DELETE/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+[cols="2,3,1,1,1"]
+.Path Parameters
+|===
+|Name| Description| Required| Default| Pattern
+
+| id
+|  
+| X
+| null
+| 
+
+|===
+
+
+
+
+
+
+===== Return Type
+
+
+
+-
+
+===== Content Type
+
+* */*
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 204
+| Book deleted successfully
+|  <<>>
+
+
+| 404
+| Book not found
+|  <<ProblemDetail>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/books/\{id\}/DELETE/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/books/\{id\}/DELETE/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/books/{id}/DELETE/DELETE.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/books/\{id\}/DELETE/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getAll]
+==== GET /api/books
+
+Operation Id:: getAll
+
+
+List all books
+
+===== Description
+
+Returns a list of all books in the catalog
+
+
+// markup not found, no include::{specDir}api/books/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+
+
+===== Return Type
+
+array[<<Book>>]
+
+
+===== Content Type
+
+* */*
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| List of books retrieved successfully
+| List[<<Book>>] 
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/books/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/books/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/books/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/books/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getAllPaged]
+==== GET /api/books/paged
+
+Operation Id:: getAllPaged
+
+
+List books with pagination
+
+===== Description
+
+Returns a paginated list of books
+
+
+// markup not found, no include::{specDir}api/books/paged/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+
+[cols="2,3,1,1,1"]
+.Query Parameters
+|===
+|Name| Description| Required| Default| Pattern
+
+| page
+| Page number (0-based) 
+| -
+| 0
+| 
+
+| size
+| Number of items per page 
+| -
+| 10
+| 
+
+|===
+
+
+===== Return Type
+
+<<ServiceResponsePagedResponseBook>>
+
+
+===== Content Type
+
+* */*
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| Paginated list of books retrieved successfully
+|  <<ServiceResponsePagedResponseBook>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/books/paged/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/books/paged/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/books/paged/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/books/paged/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getById]
+==== GET /api/books/{id}
+
+Operation Id:: getById
+
+
+Get a book by ID
+
+===== Description
+
+Returns a single book by its unique identifier
+
+
+// markup not found, no include::{specDir}api/books/\{id\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+[cols="2,3,1,1,1"]
+.Path Parameters
+|===
+|Name| Description| Required| Default| Pattern
+
+| id
+|  
+| X
+| null
+| 
+
+|===
+
+
+
+
+
+
+===== Return Type
+
+<<Book>>
+
+
+===== Content Type
+
+* */*
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| Book found
+|  <<Book>>
+
+
+| 404
+| Book not found
+|  <<ProblemDetail>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/books/\{id\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/books/\{id\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/books/{id}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/books/\{id\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.update]
+==== PUT /api/books/{id}
+
+Operation Id:: update
+
+
+Update an existing book
+
+===== Description
+
+Updates the details of an existing book by ID
+
+
+// markup not found, no include::{specDir}api/books/\{id\}/PUT/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+[cols="2,3,1,1,1"]
+.Path Parameters
+|===
+|Name| Description| Required| Default| Pattern
+
+| id
+|  
+| X
+| null
+| 
+
+|===
+
+
+[cols="2,3,1,1,1"]
+.Body Parameter
+|===
+|Name| Description| Required| Default| Pattern
+
+| Book
+|  <<Book>>
+| X
+| 
+| 
+
+|===
+
+
+
+
+
+===== Return Type
+
+<<Book>>
+
+
+===== Content Type
+
+* */*
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| Book updated successfully
+|  <<Book>>
+
+
+| 404
+| Book not found
+|  <<ProblemDetail>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/books/\{id\}/PUT/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/books/\{id\}/PUT/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/books/{id}/PUT/PUT.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/books/\{id\}/PUT/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[#models]
+== Models
+
+
+[#Book]
+=== _Book_ 
+
+Represents a book in the catalog
+
+
+[.fields-Book]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| id
+| 
+| 
+|   Long  
+| Unique identifier
+| int64    
+
+| title
+| X
+| 
+|   String  
+| Book title
+|     
+
+| author
+| X
+| 
+|   String  
+| Author name
+|     
+
+| price
+| X
+| 
+|   BigDecimal  
+| Price in USD
+|     
+
+| category
+| 
+| 
+|   String  
+| Book category/genre
+|     
+
+| createdAt
+| 
+| 
+|   Date  
+| Timestamp when the book was added
+| date-time    
+
+|===
+
+
+
+[#PagedResponseBook]
+=== _PagedResponseBook_ 
+
+Paginated response wrapper
+
+
+[.fields-PagedResponseBook]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| page
+| 
+| 
+|   Integer  
+| Current page number (0-based)
+| int32    
+
+| size
+| 
+| 
+|   Integer  
+| Number of items per page
+| int32    
+
+| totalElements
+| 
+| 
+|   Long  
+| Total number of items across all pages
+| int64    
+
+| content
+| 
+| 
+|   List   of <<Book>>
+| Page content
+|     
+
+|===
+
+
+
+[#ProblemDetail]
+=== _ProblemDetail_ 
+
+
+
+
+[.fields-ProblemDetail]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| type
+| 
+| 
+|   URI  
+| 
+| uri    
+
+| title
+| 
+| 
+|   String  
+| 
+|     
+
+| status
+| 
+| 
+|   Integer  
+| 
+| int32    
+
+| detail
+| 
+| 
+|   String  
+| 
+|     
+
+| instance
+| 
+| 
+|   URI  
+| 
+| uri    
+
+| properties
+| 
+| 
+|   Map   of <<AnyType>>
+| 
+|     
+
+|===
+
+
+
+[#ServiceResponsePagedResponseBook]
+=== _ServiceResponsePagedResponseBook_ 
+
+Generic API response wrapper
+
+
+[.fields-ServiceResponsePagedResponseBook]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| success
+| 
+| 
+|   Boolean  
+| Indicates if the request was successful
+|     
+
+| message
+| 
+| 
+|   String  
+| Response message
+|     
+
+| data
+| 
+| 
+| <<PagedResponseBook>>    
+| Response payload
+|     
+
+|===
+
+
+
