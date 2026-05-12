@@ -30,8 +30,13 @@
     <properties>
         <java.version>25</java.version>
         <maven.wrapper.executable>${project.basedir}/mvnw.cmd</maven.wrapper.executable>
+        <!-- used for exec plugin double/loop run protection-->
         <openapi.docs.exec.running>false</openapi.docs.exec.running>
-        <default.phase.skip>true</default.phase.skip>
+        <!--
+        used for disabling auto-running springdoc-openapi-maven-plugin and
+        openapi-generator-maven-plugin (is configured by default)
+        -->
+        <default.phaserun.skip>true</default.phaserun.skip>
     </properties>
     <dependencies>
         <dependency>
@@ -125,6 +130,11 @@
                             <arguments>
                                 <!-- double/run loop protection-->
                                 <argument>-Dopenapi.docs.exec.running=true</argument>
+
+                                <!-- by default openapi-generator-maven-plugin and
+                                springdoc-openapi-maven-plugin auto-runs on configured maven phases,
+                                 so i've configured so that by default they are configured
+                                 to be skipped, and only run inside the exec plugin-->
                                 <argument>-Ddefault.phase.skip=false</argument>
 
                                 <!--Start spring get the swagger json and stop the app-->
@@ -209,6 +219,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <!-- Saves runtime /v3/api-docs to swagger.json -->
             <plugin>
                 <groupId>org.springdoc</groupId>
@@ -221,7 +232,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <skip>${default.phase.skip}</skip>
+                            <skip>${default.phaserun.skip}</skip>
                             <apiDocsUrl>http://localhost:8080/v3/api-docs</apiDocsUrl>
                             <outputDir>${project.basedir}/src/main/resources/static</outputDir>
                             <outputFileName>swagger.json</outputFileName>
@@ -243,7 +254,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <skip>${default.phase.skip}</skip>
+                            <skip>${default.phaserun.skip}</skip>
                             <!--                            <skip>${skip.docgen}</skip>-->
                             <inputSpec>${project.basedir}/src/main/resources/static/swagger.json
                             </inputSpec>
