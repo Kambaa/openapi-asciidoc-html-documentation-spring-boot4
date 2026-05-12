@@ -135,7 +135,7 @@
                                 springdoc-openapi-maven-plugin auto-runs on configured maven phases,
                                  so i've configured so that by default they are configured
                                  to be skipped, and only run inside the exec plugin-->
-                                <argument>-Ddefault.phase.skip=false</argument>
+                                <argument>-Ddefault.phaserun.skip=false</argument>
 
                                 <!--Start spring get the swagger json and stop the app-->
                                 <argument>spring-boot:start@start-app</argument>
