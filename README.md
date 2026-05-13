@@ -39,4 +39,5 @@ Links:
 - https://docs.spring.io/spring-restdocs/docs/current/reference/htmlsingle/
 - https://github.com/spring-projects/spring-restdocs-samples/tree/main/restful-notes-spring-data-rest
 - https://springdoc.org/v4/
+- https://springdoc.org/plugins.html
 - https://github.com/springdoc/springdoc-openapi-maven-plugin
