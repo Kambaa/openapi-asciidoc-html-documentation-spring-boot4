@@ -38,4 +38,5 @@ For a Spring Boot 4 project, choose the documentation approach based on your tar
 Links: 
 - https://docs.spring.io/spring-restdocs/docs/current/reference/htmlsingle/
 - https://github.com/spring-projects/spring-restdocs-samples/tree/main/restful-notes-spring-data-rest
-- https://springdoc.org/v4/?utm_source=chatgpt.com
+- https://springdoc.org/v4/
+- https://github.com/springdoc/springdoc-openapi-maven-plugin
