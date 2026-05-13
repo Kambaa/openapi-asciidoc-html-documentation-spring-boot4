@@ -44,3 +44,5 @@ Links:
 - https://springdoc.org/v4/
 - https://springdoc.org/plugins.html
 - https://github.com/springdoc/springdoc-openapi-maven-plugin
+- https://springdoc.org/#scalar-support
+- https://scalar.com/products/api-references/integrations/spring-boot#configuration-properties
