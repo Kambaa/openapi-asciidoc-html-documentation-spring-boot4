@@ -43,14 +43,23 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc</artifactId>
         </dependency>
+        <!-- is you want swagger-ui, use this.-->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>3.0.2</version>
         </dependency>
+
+        <!-- is you don't want swagger-ui but swagger.json generation, use this.-->
+        <!--                <dependency>-->
+        <!--                    <groupId>org.springdoc</groupId>-->
+        <!--                    <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>-->
+        <!--                    <version>3.0.2</version>-->
+        <!--                </dependency>-->
+
         <dependency>
             <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+            <artifactId>springdoc-openapi-starter-webmvc-scalar</artifactId>
             <version>3.0.2</version>
         </dependency>
 

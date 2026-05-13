@@ -20,6 +20,9 @@ Check out:
 - [swagger.json](src/main/resources/static/swagger.json) generated via fetching it runtime
 - [index.adoc](src/main/resources/static/index.adoc) asciidoc converted from swagger.json and
 - [index.html](src/main/resources/templates/index.html) documentation static page.
+- http://localhost:8080/swagger-ui/index.html or http://localhost:8080/swagger-ui.html
+- http://localhost:8080/scalar
+
 
 
 ## API Documentation Options for a Spring Boot 4 Project
